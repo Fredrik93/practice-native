@@ -5,7 +5,7 @@ import HomeScreen from './screens/HomeScreen'
 const ComponentsScreen = () => {
     return (
         <Fragment>
-            <HomeScreen homeText="The Home Screen rendered" />
+            <Text> From component </Text>
         </Fragment>
     )
 }

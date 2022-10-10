@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { View, Text, StyleSheet, FlatList } from 'react-native'
 
 
-const ListScreen = () => {
+const ListScreen = (props) => {
     const friends = [
         { name: "Friend#1", age: 20 },
         { name: "Friend#2", age: 45 },
@@ -15,15 +15,19 @@ const ListScreen = () => {
         { name: "Friend#9", age: 33 }
     ]
     return (
-        <FlatList
-            data={friends}
-            horizontal={false}
-            showsHorizontalScrollIndicator={false}
-            keyExtractor={(friend) => friend.name}
-            //you can destructure this and write renderItem=({item}) => .. instead
-            renderItem={(elem) => {
-                return <Text style={styles.textStyle} > {elem.item.name} - Age: {elem.item.age}</Text>
-            }} />)
+        <Fragment>
+            <Text> Props from home screen: {props.banana} </Text>
+            <FlatList
+                data={friends}
+                horizontal={false}
+                showsHorizontalScrollIndicator={false}
+                keyExtractor={(friend) => friend.name}
+                //you can destructure this and write renderItem=({item}) => .. instead
+                renderItem={(elem) => {
+                    return <Text style={styles.textStyle} > {elem.item.name} - Age: {elem.item.age}</Text>
+                }} />
+        </Fragment>
+    )
 }
 
 
